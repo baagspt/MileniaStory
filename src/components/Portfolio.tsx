@@ -55,14 +55,14 @@ const Portfolio = () => {
         }
       `}</style>
       
-      <section className="relative w-full py-10 sm:py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="relative w-full py-10 sm:py-12 md:py-24 lg:py-32" style={{ backgroundColor: '#546e7a' }}>
         <div className="container px-3 sm:px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center mb-8 sm:mb-12">
             <div className="space-y-1 sm:space-y-2">
               <h2 className="text-xl max-sm:text-lg sm:text-3xl md:text-5xl font-bold tracking-tighter">
                 Galeri Undangan
               </h2>
-              <p className="max-w-[900px] text-muted-foreground text-sm max-sm:text-[12px] sm:text-base md:text-xl/relaxed">
+              <p className="max-w-[900px] text-white text-sm max-sm:text-[12px] sm:text-base md:text-xl/relaxed">
                 Berbagai contoh undangan digital yang pernah kami buat
               </p>
             </div>
@@ -91,7 +91,7 @@ const Portfolio = () => {
         </div>
         
         {/* Bottom gradient overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-muted to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-10 bg-gradient-to-t from-muted to-transparent z-10" />
       </section>
     </>
   );

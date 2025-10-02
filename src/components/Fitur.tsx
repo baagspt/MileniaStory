@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Fitur = () => {
   return (
-    <section className="w-full py-6 md:py-12 lg:py-16">
+    <section className="w-full py-6 md:py-12 lg:py-16" style={{ backgroundColor: '#78909c' }}>
       <div className="container px-3 sm:px-4">
         <motion.div 
           className="flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center"
@@ -16,7 +16,7 @@ const Fitur = () => {
             <h2 className="text-lg max-sm:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter">
               Fitur
             </h2>
-            <p className="max-w-[900px] text-muted-foreground text-[11px] max-sm:text-[10px] sm:text-sm md:text-base">
+            <p className="max-w-[900px] text-white text-[11px] max-sm:text-[10px] sm:text-sm md:text-base">
               Menjelaskan berbagai fitur dari layanan MileniaStory
             </p>
           </div>
@@ -43,7 +43,7 @@ const Fitur = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col items-center justify-center p-3 max-sm:p-2 text-center">
+              <Card className="h-full flex flex-col items-center justify-center p-3 max-sm:p-2 text-center border-[#263238]" style={{ backgroundColor: '#263238', borderColor: '#263238' }}>
                 <CardContent className="p-0">
                   {/* Judul Card */}
                   <h3 className="text-sm max-sm:text-xs sm:text-base md:text-lg font-bold mb-1">

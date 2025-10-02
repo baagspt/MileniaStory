@@ -5,47 +5,132 @@ import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
 const TemaWedding = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("elegant");
 
-  // Sample wedding theme data with categories
+  // Sample wedding theme data with categories - 4 per category
   const weddingThemes = [
+    // Elegant themes
     {
       id: 1,
       title: "Elegant Gold",
       description: "Klasik dan mewah dengan sentuhan emas",
-      image: "/images/wedding-theme-1.jpg",
+      image: "/logo.png",
       category: "elegant",
     },
     {
       id: 2,
-      title: "Romantic Garden",
-      description: "Tema taman yang penuh bunga dan warna",
-      image: "/images/wedding-theme-2.jpg",
-      category: "romantic",
+      title: "Royal Elegance",
+      description: "Kemewahan dengan nuansa kerajaan",
+      image: "/logo.png",
+      category: "elegant",
     },
     {
       id: 3,
-      title: "Minimalist White",
-      description: "Sederhana namun elegan dengan warna putih",
-      image: "/images/wedding-theme-3.jpg",
-      category: "minimalist",
+      title: "Platinum Class",
+      description: "Kesederhanaan mewah dengan sentuhan platinum",
+      image: "/logo.png",
+      category: "elegant",
     },
     {
       id: 4,
+      title: "Diamond Luxury",
+      description: "Kilauan diamond yang memukau",
+      image: "/logo.png",
+      category: "elegant",
+    },
+    // Romantic themes
+    {
+      id: 5,
+      title: "Romantic Garden",
+      description: "Tema taman yang penuh bunga dan warna",
+      image: "/logo.png",
+      category: "romantic",
+    },
+    {
+      id: 6,
+      title: "Enchanted Forest",
+      description: "Hutan ajaib dengan sentuhan magis",
+      image: "/logo.png",
+      category: "romantic",
+    },
+    {
+      id: 7,
+      title: "Sunset Love",
+      description: "Keindahan matahari terbenam untuk cinta abadi",
+      image: "/logo.png",
+      category: "romantic",
+    },
+    {
+      id: 8,
+      title: "Butterfly Dreams",
+      description: "Impian romantis dengan kupu-kupu indah",
+      image: "/logo.png",
+      category: "romantic",
+    },
+    // Minimalist themes
+    {
+      id: 9,
+      title: "Minimalist White",
+      description: "Sederhana namun elegan dengan warna putih",
+      image: "/logo.png",
+      category: "minimalist",
+    },
+    {
+      id: 10,
+      title: "Clean Lines",
+      description: "Desain bersih dengan garis lurus yang elegan",
+      image: "/logo.png",
+      category: "minimalist",
+    },
+    {
+      id: 11,
+      title: "Simple Grace",
+      description: "Keanggunan dalam kesederhanaan",
+      image: "/logo.png",
+      category: "minimalist",
+    },
+    {
+      id: 12,
+      title: "Modern Simplicity",
+      description: "Kesederhanaan modern yang memukau",
+      image: "/logo.png",
+      category: "minimalist",
+    },
+    // Vintage themes
+    {
+      id: 13,
       title: "Vintage Charm",
       description: "Nuansa klasik dengan sentuhan antik",
-      image: "/images/wedding-theme-4.jpg",
+      image: "/logo.png",
+      category: "vintage",
+    },
+    {
+      id: 14,
+      title: "Retro Romance",
+      description: "Romansa ala tahun 70-an",
+      image: "/logo.png",
+      category: "vintage",
+    },
+    {
+      id: 15,
+      title: "Classic Memories",
+      description: "Kenangan abadi gaya klasik",
+      image: "/logo.png",
+      category: "vintage",
+    },
+    {
+      id: 16,
+      title: "Antique Elegance",
+      description: "Kemewahan antik yang tak lekang oleh waktu",
+      image: "/logo.png",
       category: "vintage",
     },
   ];
 
-  const filteredThemes =
-    activeCategory === "all"
-      ? weddingThemes
-      : weddingThemes.filter((theme) => theme.category === activeCategory);
+  const filteredThemes = weddingThemes.filter((theme) => theme.category === activeCategory);
 
   return (
-    <section id="tema-wedding" className="w-full py-10 sm:py-16 lg:py-24">
+    <section className="relative w-full pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32" style={{ backgroundColor: '#455a64' }}>
       <div className="container px-3 sm:px-6">
         <motion.div
           className="flex flex-col items-center justify-center space-y-3 text-center mb-8 sm:mb-12"
@@ -57,24 +142,23 @@ const TemaWedding = () => {
             <h2 className="text-lg sm:text-3xl md:text-5xl font-bold tracking-tight">
               Tema Undangan Pernikahan
             </h2>
-            <p className="max-w-[900px] text-muted-foreground text-xs sm:text-base md:text-lg">
-              Pilih tema menarik untuk undangan digital pernikahan Anda
+            <p className="max-w-[900px] text-white text-xs sm:text-base md:text-lg">
+              Pilih tema menarik untuk undangan digital pernikahan Anda dan pesan sekarang
             </p>
           </div>
 
           {/* Category Filter Menu */}
           <div className="flex flex-wrap justify-center gap-2 mt-4 sm:mt-6">
-            {["all", "elegant", "romantic", "minimalist", "vintage"].map(
+            {["elegant", "romantic", "minimalist", "vintage"].map(
               (cat) => (
                 <Button
                   key={cat}
                   variant={activeCategory === cat ? "default" : "outline"}
                   className="rounded-full text-xs sm:text-sm px-3 sm:px-4"
+                  style={{ backgroundColor: activeCategory === cat ? '#eceff1' : '#263238', color: activeCategory === cat ? '#263238' : '#eceff1' }}
                   onClick={() => setActiveCategory(cat)}
                 >
-                  {cat === "all"
-                    ? "All Themes"
-                    : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
                 </Button>
               )
             )}
@@ -91,11 +175,11 @@ const TemaWedding = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden">
+                <Card className="overflow-hidden" style={{ backgroundColor: '#263238' }}>
                   {/* Gambar tema */}
                   <div className="w-full h-32 sm:h-40 md:h-48 flex items-center justify-center p-2 sm:p-4 bg-muted">
                     <img
-                      src={theme.image || "/logo.png"}
+                      src={theme.image || "public/logo.png"}
                       alt={theme.title}
                       className="object-contain max-h-28 sm:max-h-32 md:max-h-40 max-w-full"
                     />
@@ -113,8 +197,12 @@ const TemaWedding = () => {
                         Rp 100.000
                       </span>
                       <Button
-                        size="sm"
-                        className="text-[11px] sm:text-xs md:text-sm px-2 sm:px-3 md:px-4"
+                        size="sm" // Diperbaiki: Dihapus \"
+                        className="text-[11px] sm:text-xs md:text-sm px-2 sm:px-3 md:px-4" // Diperbaiki: Dihapus \"
+                        onClick={() => {
+                          const message = `Halo, saya ingin memesan tema undangan: *${theme.title}*%0AHarga: *Rp 100.000*%0AMohon informasi lebih lanjut.`;
+                          window.open(`https://wa.me/6289528048690?text=${message}`, '_blank');
+                        }}
                       >
                         Order{" "}
                         <ShoppingCart className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
